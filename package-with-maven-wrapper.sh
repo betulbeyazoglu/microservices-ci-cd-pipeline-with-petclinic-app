@@ -1,2 +1,2 @@
 #package-with-maven-wrapper
-./mvnw clean package
+./mvnw clean packageg
