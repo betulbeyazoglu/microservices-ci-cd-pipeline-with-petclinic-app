@@ -47,8 +47,20 @@ Resources:
           ToPort: 7979
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
+          FromPort: 9411
+          ToPort: 9411
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
           CidrIp: 0.0.0.0/0
 
   DevServer:
@@ -77,11 +89,12 @@ Resources:
           chmod +x /usr/local/bin/docker-compose 
           yum install java-11-amazon-corretto -y
           yum install git -y
+          cd /home/ec2-user
           git clone https://github.com/betulbeyazoglu/microservices-ci-cd-pipeline-with-petclinic-app.git
+          git fetch
+          git checkout dev
 
 Outputs:
   DevServerDNS:
     Description: Development Server DNS Name
-    Value: !Sub 
-      - ${PublicAddress}
-      - PublicAddress: !GetAtt DevServer.PublicDnsName
+    Value: !GetAtt DevServer.PublicDnsName
