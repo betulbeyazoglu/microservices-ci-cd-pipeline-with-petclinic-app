@@ -9,7 +9,7 @@ chrome_options.add_argument("headless")
 # Update webdriver instance of chrome-driver with adding chrome options
 driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_options)
 # Connect to the application
-url = "http://ec2-34-236-170-96.compute-1.amazonaws.com:8080"
+url = "http://3.236.125.43:8080"
 driver.get(url)
 owners_link = driver.find_element_by_link_text("OWNERS")
 owners_link.click()
