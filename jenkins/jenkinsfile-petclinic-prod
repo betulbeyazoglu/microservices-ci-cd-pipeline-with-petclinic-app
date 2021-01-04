@@ -10,7 +10,7 @@ pipeline {
         RANCHER_URL="https://rancher.bb4it.me"
         // Get the project-id from Rancher UI
         RANCHER_CONTEXT="c-sclsn:p-9cn9v"
-        RANCHER_CREDS=credentials('rancher-petclinic-credentials')
+        RANCHER_CREDS=credentials('rancher')
     }
     stages {
         stage('Package Application') {
